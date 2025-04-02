@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Senha (Bulls and Cows)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .history {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo Senha (Bulls and Cows)</h1>
+        <p>Digite um número de 4 dígitos:</p>
+        <input type="text" id="guess" maxlength="4">
+        <button onclick="checkGuess()">Enviar</button>
+        <button onclick="revealCode()">Revelar Código</button>
+        <div class="history">
+            <h3>Tentativas:</h3>
+            <ul id="attempts"></ul>
+        </div>
+    </div>
+    
+    <script>
+        let secretCode = generateSecretCode();
+        let attempts = [];
+
+        function generateSecretCode() {
+            let digits = [];
+            while (digits.length < 4) {
+                let num = Math.floor(Math.random() * 10).toString();
+                if (!digits.includes(num)) {
+                    digits.push(num);
+                }
+            }
+            return digits.join('');
+        }
+
+        function checkGuess() {
+            let guess = document.getElementById('guess').value;
+            if (guess.length !== 4 || new Set(guess).size !== 4) {
+                alert("Digite um número válido de 4 dígitos únicos.");
+                return;
+            }
+            let bulls = 0, cows = 0;
+            for (let i = 0; i < 4; i++) {
+                if (guess[i] === secretCode[i]) {
+                    bulls++;
+                } else if (secretCode.includes(guess[i])) {
+                    cows++;
+                }
+            }
+            attempts.unshift(`${guess}: ${bulls} Bulls, ${cows} Cows`);
+            updateHistory();
+        }
+
+        function updateHistory() {
+            let attemptsList = document.getElementById('attempts');
+            attemptsList.innerHTML = '';
+            attempts.forEach(attempt => {
+                let li = document.createElement('li');
+                li.textContent = attempt;
+                attemptsList.appendChild(li);
+            });
+        }
+
+        function revealCode() {
+            alert("Código secreto: " + secretCode);
+        }
+    </script>
+</body>
+</html>
