@@ -10,8 +10,17 @@ export default function App() {
   return (
     <Router>
       <div className="min-h-screen w-full bg-gradient-to-br from-blue-100 to-purple-100 font-sans">
-        <nav className="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50 px-8">
-          <h1 className="text-xl font-bold text-blue-600">Portfólio do Gustavo</h1>
+        {/* Barra de navegação */}
+        <nav className="bg-white shadow-md p-4 flex flex-col items-center sticky top-0 z-50">
+          <h1 className="text-2xl font-bold text-blue-600 mb-2">Meu Portfólio</h1>
+
+          {/* Imagem de perfil */}
+          <img
+            src="/MinhaFoto.jpg"
+            alt="Foto do Gustavo"
+            className="w-20 h-20 rounded-full border-2 border-blue-400 shadow-md object-cover mb-4"
+          />
+
           <div className="space-x-4 flex">
             <Link to="/" className="circle-link">Início</Link>
             <Link to="/sobre" className="circle-link">Sobre Mim</Link>

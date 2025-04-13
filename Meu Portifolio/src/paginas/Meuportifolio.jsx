@@ -2,9 +2,11 @@ import React from 'react';
 
 export default function Meuportifolio() {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Bem-vindo ao meu portfólio!</h1>
-      <p className="text-lg">Vou falar um pouco sobre mim e o que gosto de fazer, apresentar alguns projetos ja feitos e implementar o jogo da senha chamado bulls and Cows </p>
+    <div className="text-center space-y-6">
+      <h2 className="text-3xl font-bold text-gray-800">Olá, eu sou o Gustavo!</h2>
+      <p className="text-gray-600 text-lg">
+        Seja bem-vindo ao meu portfólio! Aqui você encontra mais sobre mim, meus projetos e um jogo de senha chamado Bulls and Cows.
+      </p>
     </div>
   );
 }
