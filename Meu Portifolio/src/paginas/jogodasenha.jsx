@@ -13,8 +13,14 @@ export default function JogoDaSenha() {
   const [tentativa, setTentativa] = useState('');
   const [tentativas, setTentativas] = useState([]);
 
-  useEffect(() => {
+  const reiniciarJogo = () => {
     setSenha(gerarSenhaAleatoria());
+    setTentativas([]);
+    setTentativa('');
+  };
+
+  useEffect(() => {
+    reiniciarJogo(); // Gera a senha na primeira montagem
   }, []);
 
   const verificarTentativa = () => {
@@ -61,6 +67,12 @@ export default function JogoDaSenha() {
           className="ml-2 bg-red-500 text-white px-4 py-2 rounded"
         >
           Revelar senha
+        </button>
+        <button
+          onClick={reiniciarJogo}
+          className="ml-2 bg-green-500 text-white px-4 py-2 rounded"
+        >
+          Reiniciar Jogo
         </button>
       </div>
 
