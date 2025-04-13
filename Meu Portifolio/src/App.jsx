@@ -18,7 +18,7 @@ export default function App() {
           <img
             src="/MinhaFoto.jpg"
             alt="Foto do Gustavo"
-            className="w-20 h-20 rounded-full border-2 border-blue-400 shadow-md object-cover mb-4"
+            className="w-12 h-12 rounded-full border-2 border-blue-400 object-cover shadow-sm mb-3"
           />
 
           <div className="space-x-4 flex">
